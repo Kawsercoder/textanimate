@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Text Animation</title>
+<style>
+#text {
+  font-size: 24px;
+}
+</style>
+</head>
+<body>
+  <div id="text"></div>
+
+  <script>
+    const textElement = document.getElementById('text');
+    const fullText = "This is the text to animate.";
+    let currentIndex = 0;
+
+    function animateText() {
+      if (currentIndex <= fullText.length) {
+        textElement.textContent = fullText.substring(0, currentIndex);
+        currentIndex++;
+        setTimeout(animateText, 100); // Adjust the speed (milliseconds) as needed
+      } else {
+        currentIndex = 0; // Reset to start again
+        setTimeout(animateText, 100);
+      }
+    }
+    animateText(); // Start the animation
+  </script>
+</body>
+</html>
